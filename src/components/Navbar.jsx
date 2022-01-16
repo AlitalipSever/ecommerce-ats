@@ -73,7 +73,7 @@ const Navbar = () => {
                 </Left>
                 <Center>
                     <Logo>
-                        ATS.
+                        Red ATMO.
                     </Logo>
                 </Center>
                 <Right>
