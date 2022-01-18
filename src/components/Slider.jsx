@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
 import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
-import {blue, blueGrey} from "@mui/material/colors";
+import {sliderItems} from "../data";
+import {useState} from "react";
 
 const Container = styled.div` 
   width: 100%;
@@ -27,11 +28,14 @@ const Arrow = styled.div`
   margin: auto;
   cursor: pointer;
   opacity: 0.5;
+  z-index: 2;
 `
 
 const Wrapper = styled.div`
     height: 100%;
   display: flex;
+  transform: translateX(${props => props.slideIndex * -100}vw);
+  transition: all 1.5s ease;
 `
 
 const Slide = styled.div`
@@ -71,43 +75,36 @@ const Button = styled.button`
 `
 
 const Slider = () => {
+
+    const [slideIndex, setSlideIndex] = useState(0)
+
+    const handleClick = (direction) => {
+        if (direction === "left"){
+            setSlideIndex(slideIndex > 0 ? slideIndex-1 : sliderItems.length-1)
+        } else {
+            setSlideIndex(slideIndex < 2 ? slideIndex+1 : 0)
+        }
+    }
+
     return (
         <Container>
             <Arrow directionArrow="left" onClick={() => handleClick("left")}>
                 <ArrowLeftOutlinedIcon/>
             </Arrow>
-            <Wrapper>
-                <Slide bg="f5fafd">
-                <ImgContainer>
-                    <Image98 src="https://www.carhartt-wip.com/binaries/content/gallery/pagetypes/looks/detail/women/2022ss/ss22-lookbook-women-01.jpg/ss22-lookbook-women-01.jpg/carhartt%3Alooksbigimage" />
-                </ImgContainer>
-                <InfoContainer>
-                    <Title>WINTER SALE</Title>
-                    <Desc>DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.</Desc>
-                    <Button>SHOW NOW</Button>
-                </InfoContainer>
-                </Slide>
-                <Slide bg="fcf1ed">
-                    <ImgContainer>
-                        <Image98 src="https://www.carhartt-wip.com/binaries/content/gallery/pagetypes/looks/detail/women/2022ss/ss22-lookbook-women-02.jpg/ss22-lookbook-women-02.jpg/carhartt%3Alooksbigimage" />
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title>WINTER SALE</Title>
-                        <Desc>DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.</Desc>
-                        <Button>SHOW NOW</Button>
-                    </InfoContainer>
-                </Slide>
-                <Slide bg="fbf0f4">
-                    <ImgContainer>
-                        <Image98 src="https://www.carhartt-wip.com/binaries/content/gallery/pagetypes/looks/detail/women/2022ss/ss22-lookbook-women-03.jpg/ss22-lookbook-women-03.jpg/carhartt%3Alooksbigimage" />
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title>WINTER SALE</Title>
-                        <Desc>DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.</Desc>
-                        <Button>SHOW NOW</Button>
-                    </InfoContainer>
-                </Slide>
-            </Wrapper> 
+            <Wrapper slideIndex = {slideIndex}>
+                {sliderItems.map((item) => (
+                    <Slide bg={item.bg}>
+                        <ImgContainer>
+                            <Image98 src={item.img} />
+                        </ImgContainer>
+                        <InfoContainer>
+                            <Title>{item.title}</Title>
+                            <Desc>{item.desc}</Desc>
+                            <Button>SHOW NOW</Button>
+                        </InfoContainer>
+                    </Slide>
+                ))}
+            </Wrapper>
             <Arrow directionArrow="right" onClick={() => handleClick("right")}>
                 <ArrowRightOutlinedIcon/>
             </Arrow>
