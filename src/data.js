@@ -49,3 +49,38 @@ export const categories = [
         title:"Shoes Sun"
     }
 ]
+
+export const popularProducts = [
+    {
+        id:1,
+        img:"https://i1.adis.ws/i/carhartt_wip/I029969_0IX_XX-ST-01/w-s-s-schools-out-t-shirt-black-pink-1037.png?$pdp_02$"
+    },
+    {
+        id:2,
+        img:"https://i1.adis.ws/i/carhartt_wip/I028392_00J_XX-ST-01/w-hooded-chase-sweatshirt-ash-heather-gold-1437.png?$pdp_02$"
+    },
+    {
+        id:3,
+        img:"https://i1.adis.ws/i/carhartt_wip/I028391_0O6_XX-ST-01/w-chase-sweatshirt-icy-water-gold-1443.png?$pdp_02$"
+    },
+    {
+        id:4,
+        img:"https://i1.adis.ws/i/carhartt_wip/I006288_0NZ_XX-ST-01/kickflip-backpack-camo-mend-20.png?$pdp_02$"
+    },
+    {
+        id:5,
+        img:"https://i1.adis.ws/i/carhartt_wip/I026480_0ME_FH-ST-01/michigan-coat-summer-dusty-h-brown-dusty-h-brown-faded-1578.png?$pdp_02$"
+    },
+    {
+        id:6,
+        img:"https://i1.adis.ws/i/carhartt_wip/I029952_0IA_XX-ST-01/hd-scramble-sweat-dusty-h-brown-black-1101.png?$pdp_02$"
+    },
+    {
+        id:7,
+        img:"https://i1.adis.ws/i/carhartt_wip/I026177_0NZ_XX-ST-01/philis-backpack-camo-mend-1674.png?$pdp_02$"
+    },
+    {
+        id:8,
+        img:"https://i1.adis.ws/i/carhartt_wip/I020222_63_XX-ST-01/acrylic-watch-hat-cypress-9826.png?$pdp_02$"
+    },
+]
