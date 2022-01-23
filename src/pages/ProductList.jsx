@@ -5,6 +5,7 @@ import Announcement from "../components/Announcement";
 import Products from "../components/Products";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
+import {mobile} from "../responsive";
 
 const Container = styled.div` 
     
@@ -15,6 +16,7 @@ const Title = styled.h1`
 const FilterContainer = styled.div` 
     display: flex;
   justify-content: space-between;
+  ${mobile({display: "flex", flexDirection: "column"})}
 `
 
 const Filter = styled.div`
